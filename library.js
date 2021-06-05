@@ -8,5 +8,15 @@ Plan:
 6- "Remove book" calling function to remove book from array 
 7- Button functionality to toggle book read status
 8- Integrate Firebase to save user data
+9- Add example books
 */
 
+let myLibrary = [];
+
+function Book() {
+    //Constructor
+}
+
+function addBookToLibrary() {
+    //Add book to array 
+}
