@@ -7,7 +7,7 @@
 :root {
     --text-color: white;
     --title-color: (linear-gradient( 109.5deg,  rgba(76,221,242,1) 11.2%, rgba(92,121,255,1) 91.1% ));
-    --text-dark: #1D1E2C;
+    --text-dark: #212529;
     --bg-color: rgb(228, 228, 228);
 }
 
@@ -18,10 +18,39 @@
 
 h1 {
     font-size: 60px;
-    font-weight: lighter;
+    font-weight: 300;
     text-align: center;
     color: rgb(255, 255, 255);
     margin: 0;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--text-dark);
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-dark);
+}
+
+a {
+    font: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    border-top: 1px solid black;
+    opacity: 0.25;
+    margin: 50px auto;
+    width: 70vw;
+    max-width: 500px;
 }
 
 .header-wrapper {
@@ -59,8 +88,9 @@ body {
     width: 100px;
     color: white;
     background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 7.5px;
+    border-radius: 6.5px;
     border-width: 0;
+    transition: color .05s ease-in-out,background-color .05s ease-in-out,border-color .05s ease-in-out,box-shadow .05s ease-in-out;
 }
 
 .sign-in-button:hover {
@@ -70,5 +100,35 @@ body {
 .mainbody-wrapper {
     display:block;
     margin: auto;
+    margin-top: 50px;
     text-align: center;
+}
+
+.sub-text {
+    font-size: 16px;
+    color: #6c757d;
+}
+
+#icon-credit {
+    font-size: 12px;
+}
+
+#add-book-button {
+    border-radius: 6.5px;
+    border-width: 1px;
+    padding: 10px 25px ;
+    background-color: transparent;
+    color: var(--text-dark);
+    border-color: var(--text-dark);
+    transition: color .1s ease-in-out,background-color .1s ease-in-out,border-color .1s ease-in-out,box-shadow .1s ease-in-out;
+}
+
+#add-book-button:hover {
+    color: white;
+    background-color: var(--text-dark);
+    background: var(--text-dark);
+}
+
+#footer {
+    width: 400px;
 }
