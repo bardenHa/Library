@@ -70,16 +70,16 @@ function displayLibrary() {
     const bookCard = document.getElementById('book-card');
     const clone = bookCard.cloneNode(true);
     clone.style.display = 'inline-flex';
-    
+    clone.id = String(myLibrary.length);
+
     console.log(myLibrary.length);
     if (myLibrary.length == 1) {
         emptyLibrary.replaceWith(clone);
     }
     else if (myLibrary.length > 1) {
         library.appendChild(clone);
-        console.log('1');
     }
     else {
-        console.log('no books');
+        //restore library empty message
     }
 }
