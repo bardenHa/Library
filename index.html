@@ -10,6 +10,7 @@
     <link rel="icon" href="data\book.svg">
 </head>
 <body>
+    <!-- Header Section-->
     <div class="header-wrapper">
         <div class="title-wrapper">
             <img src="data\book.svg" alt="Book icon" class="header-icon">
@@ -17,6 +18,7 @@
         </div>
         <button class="sign-in-button">Sign In</button>
     </div>
+    <!-- Main Section-->
     <div class="mainbody-wrapper">
         <div id="button-wrapper">
             <button id="add-book-button">Add Book</button>
@@ -36,6 +38,44 @@
         <hr class="divider">
         <div id="icon-credit">
             Icons made by <a href="https://www.flaticon.com/authors/bqlqn" title="bqlqn">bqlqn</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        </div>
+    </div>
+    <!-- Model Section-->
+    <div class="bg-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-header-text">Add Book</h3>
+            </div>
+            <div class="modal-body">
+               <form name="addBookForm">
+                <div class="label-container">
+                    <label for="bookTitleInput" class="form-label">Title</label>
+                    <input id="bookTitleInput" class="input-container" name="inputBookTitle" 
+                    placeholder="E.g. Point Blanc" maxlength="50">
+                    <div class="label-text">What is the book title?</div>
+                </div>
+                <div class="label-container">
+                    <label for="bookAuthorInput" class="form-label">Author</label>
+                    <input id="bookAuthorInput" class="input-container" name="inputAuthorTitle" 
+                    placeholder="E.g. Anthony Horowitz" maxlength="50">
+                    <div class="label-text">Who is the book author?</div>
+                </div>
+                <div class="label-container">
+                    <label for="bookNumberInput" class="form-label">Pages</label>
+                    <input type="number" id="bookNumberInput" class="input-container" name="inputNumberTitle" 
+                    placeholder="E.g. 288" min="1" max="50000">
+                    <div class="label-text">How many pages are in the book?</div>
+                </div>
+                <div class="label-container-check">
+                    <input type="checkbox" class="form-check" id="bookReadStatus">
+                    <label for="bookReadStatus" class="form-check-label">Read?</label>
+                </div>
+               </form>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-button" id="cancel-button">Cancel</button>
+                <button class="modal-button" id="save-button">Save</button>
+            </div>
         </div>
     </div>
 </body>
