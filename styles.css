@@ -123,7 +123,6 @@ body {
 
 .modal-content {
     width: 400px;
-    height: 625px;
     background-color: white;
     border-radius: 5px;
 
@@ -139,6 +138,7 @@ body {
 }
 
 .modal-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
     display: flex;
     padding: 15px;
     justify-content: flex-end;
@@ -202,6 +202,8 @@ body {
     border-radius: 5px;
     width: 1em;
     height: 1em;
+    vertical-align: top;
+    margin-top: 0.25em;
 }
 
 #cancel-button:hover {
