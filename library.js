@@ -26,9 +26,7 @@ document.getElementById('cancel-button').addEventListener('click', () => {
 });
 
 //close book form by clicking outsite window
-var specifiedElement = document.getElementById('modal-container');
 document.addEventListener('click', (event) => {
-    var isClickInside = specifiedElement.contains(event.target);
     if ( !event.target.closest(".modal-content") && formOpen == true) {
         document.querySelector('.bg-modal').style.display = 'none';
         formOpen = false;
