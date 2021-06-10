@@ -14,21 +14,24 @@ Plan:
 //open book form
 let formOpen = false;
 
+function openModal()  {document.querySelector('.bg-modal').style.display = 'flex'};
+function closeModal() {document.querySelector('.bg-modal').style.display = 'none'};
+
 document.getElementById('add-book-button').addEventListener('click', () => {
-    document.querySelector('.bg-modal').style.display = 'flex';
+    openModal();
     setTimeout(() => {formOpen = true}, 100);
 });
 
 //close book form using cancel button
 document.getElementById('cancel-button').addEventListener('click', () => {
-    document.querySelector('.bg-modal').style.display = 'none';
+    closeModal();
     formOpen = false;
 });
 
 //close book form by clicking outsite window
 document.addEventListener('click', (event) => {
     if ( !event.target.closest(".modal-content") && formOpen == true) {
-        document.querySelector('.bg-modal').style.display = 'none';
+        closeModal();
         formOpen = false;
       }
 });
@@ -36,11 +39,13 @@ document.addEventListener('click', (event) => {
 let myLibrary = [];
 
 //Constructor
-function Book(bookTitle, bookAuthor, bookPages, bookRead) {
-    this.bookTitle = bookTitle;
-    this.bookAuthor = bookAuthor;
-    this.bookPages = bookPages;
-    this.bookRead = bookRead;
+class Book {
+    constructor(bookTitle, bookAuthor, bookPages, bookRead) {
+        this.bookTitle = bookTitle;
+        this.bookAuthor = bookAuthor;
+        this.bookPages = bookPages;
+        this.bookRead = bookRead;
+    }
 }
 
 //Add book to array 
@@ -54,5 +59,27 @@ function addBookToLibrary() {
 
     myLibrary.push(newBook);
     console.log(myLibrary);
-    //then close form
+    closeModal();
+    formOpen = false;
+    displayLibrary();
+}
+
+function displayLibrary() {
+    const library = document.getElementById('library');
+    const emptyLibrary = document.getElementById('book-container');
+    const bookCard = document.getElementById('book-card');
+    const clone = bookCard.cloneNode(true);
+    clone.style.display = 'inline-flex';
+    
+    console.log(myLibrary.length);
+    if (myLibrary.length == 1) {
+        emptyLibrary.replaceWith(clone);
+    }
+    else if (myLibrary.length > 1) {
+        library.appendChild(clone);
+        console.log('1');
+    }
+    else {
+        console.log('no books');
+    }
 }
