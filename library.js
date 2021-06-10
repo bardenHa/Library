@@ -33,13 +33,26 @@ document.addEventListener('click', (event) => {
       }
 });
 
-
 let myLibrary = [];
 
-function Book() {
-    //Constructor
+//Constructor
+function Book(bookTitle, bookAuthor, bookPages, bookRead) {
+    this.bookTitle = bookTitle;
+    this.bookAuthor = bookAuthor;
+    this.bookPages = bookPages;
+    this.bookRead = bookRead;
 }
 
+//Add book to array 
 function addBookToLibrary() {
-    //Add book to array 
+    const bookTitle = document.getElementById("bookTitleInput").value;
+    const bookAuthor = document.getElementById("bookAuthorInput").value;
+    const bookPages = document.getElementById("bookPagesInput").value;
+    const bookRead = document.getElementById("bookReadStatus").checked;
+
+    const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
+
+    myLibrary.push(newBook);
+    console.log(myLibrary);
+    //then close form
 }
