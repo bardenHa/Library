@@ -116,17 +116,19 @@ body {
     backdrop-filter: blur(2.5px);
     position: absolute;
     top: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
     display: none;
+}
+
+.bg-modal:active {
+    display: flex;
 }
 
 .modal-content {
     width: 400px;
     background-color: white;
     border-radius: 5px;
-
 }
 
 .modal-header {
