@@ -91,6 +91,7 @@ function displayLibrary() {
     const cardBookTitle = myLibrary[cardID].bookTitle;
     const cardPagesNumber = myLibrary[cardID].bookPages;
     const cardAuthor = myLibrary[cardID].bookAuthor;
+    const cardRead = myLibrary[cardID].bookRead;
 
     //Clones card to avoid changing root element
     const clone = bookCard.cloneNode(true);
@@ -98,6 +99,7 @@ function displayLibrary() {
     //Adds card to library display
     clone.style.display = 'inline-flex';
     clone.id = String(myLibrary.length);
+
     clone.innerHTML = `
     <div class="card-main">
         <h3 id="card-book-title">${cardBookTitle}</h3>
@@ -105,7 +107,7 @@ function displayLibrary() {
         <h4 id="card-author">${cardAuthor}</h4>
     </div>
     <div class="card-footer">
-        <button class="read-button">Read</button>
+        <button class="read-button" id="read${cardID}" onclick="bookNowRead(${cardID})">Read</button>
         <button class="delete-button" onclick="removeBookFromLibrary(${cardID})">Delete</button>
     </div>`;
 
@@ -117,6 +119,9 @@ function displayLibrary() {
     else if (cardID > 0) {
         library.appendChild(clone);
     }
+    
+    console.log(cardRead);
+    cardRead ? bookNowRead(cardID) : '' ;
 }
 
 function removeBookFromLibrary(cardID) {
@@ -129,5 +134,17 @@ function removeBookFromLibrary(cardID) {
 
     if (cardID == 0) {
         library.appendChild(emptyLibrary);
+    }
+}
+
+function bookNowRead(cardID) {
+    const buttonID = document.getElementById(`read${cardID}`);
+    bookRead = buttonID.classList.contains('now-read');
+
+    if (bookRead) {
+        buttonID.classList.remove('now-read');
+    }
+    else {
+        buttonID.classList.add('now-read');
     }
 }

@@ -263,7 +263,13 @@ body {
 }
 
 .read-button:hover {
-    background-color: #20e3b2;
+    border-color: #20e3b2;
+    outline: 0;
+    box-shadow: 0 0 5px 0.15rem rgba(46, 238, 132, 0.397);
+}
+
+.read-button:active {
+    background-color: #c3fff0;
     color: white;
 }
 
@@ -283,6 +289,11 @@ body {
     border-color: rgb(241, 35, 35);
     outline: 0;
     box-shadow: 0 0 0 0.15rem rgba(255, 9, 9, 0.116);
+}
+
+.now-read {
+    background-color: #20e3b2;
+    color: white;
 }
 
 #cancel-button:hover {
