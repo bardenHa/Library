@@ -65,19 +65,20 @@
                 <div class="label-container">
                     <label for="bookTitleInput" class="form-label">Title</label>
                     <input id="bookTitleInput" class="input-container" name="inputBookTitle" 
-                    placeholder="E.g. Point Blanc" maxlength="50">
+                    placeholder="E.g. Point Blanc" maxlength="50" required>
+                    <i class="fas fa-check-circle"></i>
                     <div class="label-text">What is the book title?</div>
                 </div>
                 <div class="label-container">
                     <label for="bookAuthorInput" class="form-label">Author</label>
                     <input id="bookAuthorInput" class="input-container" name="inputAuthorTitle" 
-                    placeholder="E.g. Anthony Horowitz" maxlength="50">
+                    placeholder="E.g. Anthony Horowitz" maxlength="50" required>
                     <div class="label-text">Who is the book author?</div>
                 </div>
                 <div class="label-container">
                     <label for="bookPagesInput" class="form-label">Pages</label>
                     <input type="number" id="bookPagesInput" class="input-container" name="inputNumberTitle" 
-                    placeholder="E.g. 288" min="1" max="50000">
+                    placeholder="E.g. 288" min="1" max="50000" required>
                     <div class="label-text">How many pages are in the book?</div>
                 </div>
                 <div class="label-container-check">
@@ -88,7 +89,7 @@
             </div>
             <div class="modal-footer">
                 <button class="modal-button" id="cancel-button">Cancel</button>
-                <button class="modal-button" id="save-button" onclick="addBookToLibrary()">Save</button>
+                <button class="modal-button" id="save-button" type="submit" onclick="addBookToLibrary()">Save</button>
             </div>
         </div>
     </div>

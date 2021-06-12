@@ -48,6 +48,14 @@ class Book {
     }
 }
 
+function isInputValid(input) {
+    let isValid = true;
+    if (input === '') {
+        isValid = false;
+    }
+    return isValid;
+}
+
 //Add book to array 
 function addBookToLibrary() {
     const bookTitle = document.getElementById("bookTitleInput").value;
@@ -55,6 +63,11 @@ function addBookToLibrary() {
     const bookPages = document.getElementById("bookPagesInput").value;
     const bookRead = document.getElementById("bookReadStatus").checked;
 
+    isInputValid(bookTitle) ? document.querySelector('#bookTitleInput').classList.remove('invalid') : document.querySelector('#bookTitleInput').classList.add('invalid');
+    isInputValid(bookAuthor) ? document.querySelector('#bookAuthorInput').classList.remove('invalid') : document.querySelector('#bookAuthorInput').classList.add('invalid');
+    isInputValid(bookPages) ? document.querySelector('#bookPagesInput').classList.remove('invalid') : document.querySelector('#bookPagesInput').classList.add('invalid');
+
+    if (isInputValid(bookTitle) && isInputValid(bookAuthor) && isInputValid(bookPages)) {
     const newBook = new Book(bookTitle, bookAuthor, bookPages, bookRead);
 
     myLibrary.push(newBook);
@@ -62,6 +75,8 @@ function addBookToLibrary() {
     closeModal();
     formOpen = false;
     displayLibrary();
+    document.getElementsByTagName("form")[0].reset();
+    }
 }
 
 let emptyLibrary = document.getElementById('book-container');
