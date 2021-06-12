@@ -7,7 +7,7 @@ Plan:
 5- "New book" button which calls previous functions
 6- "Remove book" calling function to remove book from array 
 7- Button functionality to toggle book read status
-8- Integrate Firebase to save user data
+8- Integrate localstorage to save user data
 9- Add example books
 */
 
@@ -102,19 +102,15 @@ function displayLibrary() {
     else if (cardID > 0) {
         library.appendChild(clone);
     }
-    else {
-        //restore library empty message
-    }
 }
 
 function removeBookFromLibrary(cardID) {
-    const library = document.getElementById('library');
     const libraryCard = document.getElementById(cardID + 1);
-
-    console.log(emptyLibrary);
 
     //Removes book from library 
     library.removeChild(libraryCard);
+    //Removes book from array 
+    myLibrary.splice(cardID, 1);
 
     if (cardID == 0) {
         library.appendChild(emptyLibrary);
