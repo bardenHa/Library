@@ -68,15 +68,37 @@ function displayLibrary() {
     const library = document.getElementById('library');
     const emptyLibrary = document.getElementById('book-container');
     const bookCard = document.getElementById('book-card');
+
+    cardID = myLibrary.length - 1;
+
+    //Assigning user input
+    const cardBookTitle = myLibrary[cardID].bookTitle;
+    const cardPagesNumber = myLibrary[cardID].bookPages;
+    const cardAuthor = myLibrary[cardID].bookAuthor;
+
+    //Clones card to avoid changing root element
     const clone = bookCard.cloneNode(true);
+
+    //Adds card to library display
     clone.style.display = 'inline-flex';
     clone.id = String(myLibrary.length);
+    clone.innerHTML = `
+    <div class="card-main">
+        <h3 id="card-book-title">${cardBookTitle}</h3>
+        <h5 id="card-pages-number">${cardPagesNumber} Pages</h5>
+        <h4 id="card-author">${cardAuthor}</h4>
+    </div>
+    <div class="card-footer">
+        <button class="read-button">Read</button>
+        <button class="delete-button">Delete</button>
+    </div>`;
 
+    //Displays library cards
     console.log(myLibrary.length);
-    if (myLibrary.length == 1) {
+    if (cardID == 0) {
         emptyLibrary.replaceWith(clone);
     }
-    else if (myLibrary.length > 1) {
+    else if (cardID > 0) {
         library.appendChild(clone);
     }
     else {
