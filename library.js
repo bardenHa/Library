@@ -64,12 +64,13 @@ function addBookToLibrary() {
     displayLibrary();
 }
 
+let emptyLibrary = document.getElementById('book-container');
+let library = document.getElementById('library');
+
 function displayLibrary() {
-    const library = document.getElementById('library');
-    const emptyLibrary = document.getElementById('book-container');
     const bookCard = document.getElementById('book-card');
 
-    cardID = myLibrary.length - 1;
+    const cardID = myLibrary.length - 1;
 
     //Assigning user input
     const cardBookTitle = myLibrary[cardID].bookTitle;
@@ -90,7 +91,7 @@ function displayLibrary() {
     </div>
     <div class="card-footer">
         <button class="read-button">Read</button>
-        <button class="delete-button">Delete</button>
+        <button class="delete-button" onclick="removeBookFromLibrary(${cardID})">Delete</button>
     </div>`;
 
     //Displays library cards
@@ -103,5 +104,19 @@ function displayLibrary() {
     }
     else {
         //restore library empty message
+    }
+}
+
+function removeBookFromLibrary(cardID) {
+    const library = document.getElementById('library');
+    const libraryCard = document.getElementById(cardID + 1);
+
+    console.log(emptyLibrary);
+
+    //Removes book from library 
+    library.removeChild(libraryCard);
+
+    if (cardID == 0) {
+        library.appendChild(emptyLibrary);
     }
 }
