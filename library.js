@@ -84,14 +84,12 @@ function addBookToLibrary() {
 let emptyLibrary = document.getElementById('book-container');
 let library = document.getElementById('library');
 
-function displayLibrary() {
+function displayLibrary(cardID) {
     const bookCard = document.getElementById('book-card');
 
-    //if (typeof cardID === 'undefined') {
-    //    cardID = myLibrary.length - 1;
-    //}
-
-    const cardID = myLibrary.length - 1;
+    if (typeof cardID === 'undefined') {
+        cardID = myLibrary.length - 1;
+    }
 
     //Assigning user input
     const cardBookTitle = myLibrary[cardID].bookTitle;
@@ -104,7 +102,7 @@ function displayLibrary() {
 
     //Adds card to library display
     clone.style.display = 'inline-flex';
-    clone.id = String(myLibrary.length);
+    clone.id = cardID + 1;
 
     clone.innerHTML = `
     <div class="card-main">
@@ -118,13 +116,22 @@ function displayLibrary() {
     </div>`;
 
     //Displays library cards
-    console.log(Object.values(myLibrary).length);
 
+    /*
     if (Object.values(myLibrary).length == 1) {
         emptyLibrary.replaceWith(clone);
     }
     else if (cardID > 0) {
         library.appendChild(clone);
+    }
+    */
+
+    if (document.contains(emptyLibrary)) {
+        library.removeChild(emptyLibrary);
+        library.appendChild(clone); 
+    }   
+    else {
+        library.appendChild(clone); 
     }
 
     cardRead ? bookNowRead(cardID) : '' ;
@@ -164,16 +171,19 @@ function updateLocalStorage() {
     localStorage.setItem('Library', stringifiedLibrary);
 }
 
-/*
-
 function updateLibrary() {
     retrievedObject = localStorage.getItem('Library');
-    console.log(retrievedObject);
-    myLibrary = Book(JSON.parse(retrievedObject));
-    console.log(myLibrary);
+    parsedLibrary = JSON.parse(retrievedObject);
+
+    myLibrary = parsedLibrary.filter(function (e) {
+        return e != null;
+    });
 
     for (i=0; i < myLibrary.length; i++) {
-
+        console.log(i);
+        displayLibrary(i);
     }
 }
-*/
+
+//Update library on page load
+updateLibrary();
