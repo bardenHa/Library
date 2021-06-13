@@ -76,6 +76,8 @@ function addBookToLibrary() {
     formOpen = false;
     displayLibrary();
     document.getElementsByTagName("form")[0].reset();
+
+    updateLocalStorage();
     }
 }
 
@@ -84,6 +86,10 @@ let library = document.getElementById('library');
 
 function displayLibrary() {
     const bookCard = document.getElementById('book-card');
+
+    //if (typeof cardID === 'undefined') {
+    //    cardID = myLibrary.length - 1;
+    //}
 
     const cardID = myLibrary.length - 1;
 
@@ -112,15 +118,15 @@ function displayLibrary() {
     </div>`;
 
     //Displays library cards
-    console.log(myLibrary.length);
-    if (cardID == 0) {
+    console.log(Object.values(myLibrary).length);
+
+    if (Object.values(myLibrary).length == 1) {
         emptyLibrary.replaceWith(clone);
     }
     else if (cardID > 0) {
         library.appendChild(clone);
     }
-    
-    console.log(cardRead);
+
     cardRead ? bookNowRead(cardID) : '' ;
 }
 
@@ -130,9 +136,11 @@ function removeBookFromLibrary(cardID) {
     //Removes book from library 
     library.removeChild(libraryCard);
     //Removes book from array 
-    myLibrary.splice(cardID, 1);
+    delete myLibrary[cardID];
 
-    if (cardID == 0) {
+    updateLocalStorage();
+
+    if (Object.values(myLibrary).length == 0) {
         library.appendChild(emptyLibrary);
     }
 }
@@ -148,3 +156,24 @@ function bookNowRead(cardID) {
         buttonID.classList.add('now-read');
     }
 }
+
+function updateLocalStorage() {
+    //Stringify object for storage
+    stringifiedLibrary = JSON.stringify(myLibrary);
+    
+    localStorage.setItem('Library', stringifiedLibrary);
+}
+
+/*
+
+function updateLibrary() {
+    retrievedObject = localStorage.getItem('Library');
+    console.log(retrievedObject);
+    myLibrary = Book(JSON.parse(retrievedObject));
+    console.log(myLibrary);
+
+    for (i=0; i < myLibrary.length; i++) {
+
+    }
+}
+*/
