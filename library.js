@@ -147,13 +147,18 @@ function bookNowRead(cardID) {
 
     if (bookRead) {
         buttonID.classList.remove('now-read');
+        myLibrary[cardID].bookRead = false;
     }
     else {
         buttonID.classList.add('now-read');
+        myLibrary[cardID].bookRead = true;  
     }
+
+    updateLocalStorage();
 }
 
 function updateLocalStorage() {
+    console.log('1');
     //Stringify object for storage
     stringifiedLibrary = JSON.stringify(myLibrary);
     
