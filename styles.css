@@ -83,10 +83,10 @@ body {
     margin: 0;
 }
 
-.sign-in-button {
+.example-button {
     margin: 0.5rem;
+    padding: 0 10px;
     height: 40px;
-    width: 100px;
     color: white;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 6.5px;
@@ -94,7 +94,7 @@ body {
     transition: color .05s ease-in-out,background-color .05s ease-in-out,border-color .05s ease-in-out,box-shadow .05s ease-in-out;
 }
 
-.sign-in-button:hover {
+.example-button:hover {
     background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -348,4 +348,8 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+#icon-credit {
+    margin-bottom: 1.5em;
 }

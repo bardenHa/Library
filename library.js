@@ -76,8 +76,6 @@ function addBookToLibrary() {
     formOpen = false;
     displayLibrary();
     document.getElementsByTagName("form")[0].reset();
-
-    updateLocalStorage();
     }
 }
 
@@ -115,17 +113,6 @@ function displayLibrary(cardID) {
         <button class="delete-button" onclick="removeBookFromLibrary(${cardID})">Delete</button>
     </div>`;
 
-    //Displays library cards
-
-    /*
-    if (Object.values(myLibrary).length == 1) {
-        emptyLibrary.replaceWith(clone);
-    }
-    else if (cardID > 0) {
-        library.appendChild(clone);
-    }
-    */
-
     if (document.contains(emptyLibrary)) {
         library.removeChild(emptyLibrary);
         library.appendChild(clone); 
@@ -135,6 +122,8 @@ function displayLibrary(cardID) {
     }
 
     cardRead ? bookNowRead(cardID) : '' ;
+    
+    updateLocalStorage();
 }
 
 function removeBookFromLibrary(cardID) {
@@ -184,6 +173,29 @@ function updateLibrary() {
         displayLibrary(i);
     }
 }
+
+function loadExampleBooks() {
+    myLibrary = exampleLibrary.filter(function (e) {
+        return e != null;
+    });
+
+    for (i=0; i < myLibrary.length; i++) {
+        console.log(i);
+        displayLibrary(i);
+    }
+}
+
+exampleLibrary = [
+    {"bookTitle":"Point Blanc","bookAuthor":"Anthony Horowitz","bookPages":"288","bookRead":true},
+    {"bookTitle":"Animal Farm","bookAuthor":"George Orwell","bookPages":"122","bookRead":false},
+    {"bookTitle":"The Old Man and the Sea","bookAuthor":"Ernest Hemingway","bookPages":"99","bookRead":false},
+    {"bookTitle":"Of Mice and Men","bookAuthor":"John Steinbeck","bookPages":"103","bookRead":true},
+    {"bookTitle":"The Sorrows of Young Werther","bookAuthor":"Johann Wolfgang von Goethe","bookPages":"88","bookRead":false},
+    {"bookTitle":"Harry Potter and the Goblet of Fire","bookAuthor":"J.K Rowling","bookPages":"734","bookRead":true},
+    {"bookTitle":"Ulysses","bookAuthor":"James Joyce","bookPages":"783","bookRead":false},
+    {"bookTitle":"The Stand","bookAuthor":"Stephen King","bookPages":"1152","bookRead":false}
+]
+
 
 //Update library on page load
 updateLibrary();
