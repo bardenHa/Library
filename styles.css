@@ -335,3 +335,17 @@ body {
 #library {
     max-width: 800px;
 }
+
+#card-book-title {
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#card-author {
+    max-width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
