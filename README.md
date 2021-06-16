@@ -1,7 +1,7 @@
 # BookHub - Online Library Application
 ![readme banner](readme-banner.png)
 ## What is BookHub?
-`BookHub` is an online library web application built using HTML, CSS and JavaScript. with local storage capabilities. This my take on a Library Project, necessary for completion of the Full Stack JavaScript  <a href="https://www.theodinproject.com/paths/full-stack-javascript" target="_blank">path</a> on **The Odin Project**.
+`BookHub` is an online library web application built using HTML, CSS and JavaScript with local storage capabilities. This my take on a Library Project, necessary for completion of the Full Stack JavaScript  <a href="https://www.theodinproject.com/paths/full-stack-javascript" target="_blank">path</a> on **The Odin Project**.
 
 ## Installation
  BookHub is available live on GitHub [pages](https://bardenha.github.io/Library/).
